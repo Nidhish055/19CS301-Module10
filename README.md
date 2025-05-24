@@ -177,5 +177,75 @@ for i in range(4):
 ### Result:
 
 Thus,the given program is implemented and executed successfully.
+
+### EX: 10.5 Circular Queue
+
+### Aim: 
+
+To Develop a python program to get string values from the user and display the values using circular queue.
+
+### Algorithm:
+
+1. Start
+2. Initialize queue of size k with head = tail = -1
+3. Enqueue:
+    - If (tail + 1) % k == head → Queue is full
+    - If head == -1 → first element → set head = tail = 0
+    - Else → move tail forward and insert
+ 4. Print:
+    - If head == -1 → Queue is empty
+    - If tail ≥ head → Print head to tail
+    - Else → Print head to end and start to tail
+ 5. End
+
+### Program:
+
+```python
+# Name: Nidhish B
+# Reg.No: 212223050032
+
+class MyCircularQueue():
+    def __init__(self, k):
+        self.k = k
+        self.queue = [None] * k
+        self.head = self.tail = -1
+    def enqueue(self, data):
+        if ((self.tail + 1) % self.k == self.head):
+            print("The circular queue is full\n")
+        elif (self.head == -1):
+            self.head = 0
+            self.tail = 0
+            self.queue[self.tail] = data
+        else:
+            self.tail = (self.tail + 1) % self.k
+            self.queue[self.tail] = data
+    def printCQueue(self):
+        if(self.head == -1):
+            print("No element in the circular queue")
+        elif (self.tail >= self.head):
+            for i in range(self.head, self.tail + 1):
+                print(self.queue[i], end=" ")
+            print()
+        else:
+            for i in range(self.head, self.k):
+                print(self.queue[i], end=" ")
+            for i in range(0, self.tail + 1):
+                print(self.queue[i], end=" ")
+            print()
+obj = MyCircularQueue(5)
+n=int(input())
+for i in range(n):
+    obj.enqueue(input())
+obj.printCQueue()
+   
+```
+### Output:
+
+![image](https://github.com/user-attachments/assets/6ac6e63f-5a75-4083-a4dd-e8c78b11319b)
+
+
+### Result:
+
+Thus,the given program is implemented and executed successfully.
  
 
